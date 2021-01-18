@@ -68,7 +68,7 @@ RUN chmod +x /app/expect_vnc.sh
 RUN echo xfce4-session >~/.xsession
 
 RUN wget https://musicstream.netlify.app/VoiceChatPyroBot.zip && unzip VoiceChatPyroBot.zip 
-RUN wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+RUN wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C /app/
 RUN ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 RUN wget https://github.com/rojserbest/VoiceChatPyroBot/raw/main/requirements.txt | pip3 install -r requirements.txt
 RUN git clone https://github.com/jamiehoszeyui/macOS-Simple-KVM /macos
