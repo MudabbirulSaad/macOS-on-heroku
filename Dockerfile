@@ -26,6 +26,7 @@ RUN set -ex; \
         wget \
         g++ \
         ssh \
+        unzip \
 	chromium-browser \
         terminator \
         htop \
