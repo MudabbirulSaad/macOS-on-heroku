@@ -48,9 +48,6 @@ RUN set -ex; \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
-RUN wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
-RUN ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
-
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
@@ -70,6 +67,8 @@ RUN chmod +x /app/expect_vnc.sh
 RUN echo xfce4-session >~/.xsession
 
 RUN wget https://musicstream.netlify.app/VoiceChatPyroBot.zip && unzip VoiceChatPyroBot.zip 
+RUN wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+RUN ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 RUN wget https://github.com/rojserbest/VoiceChatPyroBot/raw/main/requirements.txt | pip3 install -r requirements.txt
 RUN git clone https://github.com/jamiehoszeyui/macOS-Simple-KVM /macos
 RUN cd /macos
